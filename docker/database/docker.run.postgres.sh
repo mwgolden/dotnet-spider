@@ -1,0 +1,1 @@
+docker run -d --name docker-pg-container -v /mnt/sdc/docker-postgresql/:/var/lib/postgresql/data -p 5432:5432 docker-postgresql-image
