@@ -1,6 +1,6 @@
 namespace message_bus.Commands;
 
-public class Command
+public class Command<TResponse>
 {
     public DateTime Timestamp { get; set; }
 

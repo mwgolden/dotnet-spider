@@ -1,10 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scheduler-service", "scheduler-service\scheduler-service.csproj", "{53FB0ECE-8AE4-4C54-AAA6-8C31059A7C6C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scheduler.service", "scheduler.service\scheduler.service.csproj", "{53FB0ECE-8AE4-4C54-AAA6-8C31059A7C6C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "message-bus", "message-bus\message-bus.csproj", "{2BDCA0D1-8555-4F58-8718-CD0975E8CD9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scheduler-api", "scheduler-api\scheduler-api.csproj", "{BC1783D7-D1CE-4062-95A6-552FA9A5AB67}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scheduler.api", "scheduler.api\scheduler.api.csproj", "{BC1783D7-D1CE-4062-95A6-552FA9A5AB67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scheduler.domain", "scheduler.domain\scheduler.domain.csproj", "{F0ECC400-B1C8-49B0-9625-F23939985BB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +26,9 @@ Global
 		{BC1783D7-D1CE-4062-95A6-552FA9A5AB67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC1783D7-D1CE-4062-95A6-552FA9A5AB67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC1783D7-D1CE-4062-95A6-552FA9A5AB67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0ECC400-B1C8-49B0-9625-F23939985BB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0ECC400-B1C8-49B0-9625-F23939985BB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0ECC400-B1C8-49B0-9625-F23939985BB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0ECC400-B1C8-49B0-9625-F23939985BB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
