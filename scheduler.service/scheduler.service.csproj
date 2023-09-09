@@ -26,6 +26,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\message-bus\message-bus.csproj" />
+      <ProjectReference Include="..\scheduler.domain\scheduler.domain.csproj" />
     </ItemGroup>
 
 

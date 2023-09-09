@@ -18,7 +18,7 @@ public class JobCommandHandler : ICommandHandler<JobCommand, bool>
             command.SchedName,
             command.JobName,
             command.JobGroupName,
-            command.Command
+            command.CommandEnum
         );
 
         _messageBus.Publish(jobEvent);

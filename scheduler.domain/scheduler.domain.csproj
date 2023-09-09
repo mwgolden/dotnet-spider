@@ -7,15 +7,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Models\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="Quartz" Version="3.7.0" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\message-bus\message-bus.csproj" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <Folder Include="Models\" />
     </ItemGroup>
 
 </Project>

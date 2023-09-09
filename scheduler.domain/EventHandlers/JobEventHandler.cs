@@ -4,6 +4,7 @@ using message_bus.Interfaces;
 using Quartz;
 using scheduler.domain.Commands;
 using scheduler.domain.Events;
+using scheduler.domain.Interfaces;
 
 namespace scheduler.domain.EventHandlers;
 
@@ -19,9 +20,11 @@ public class JobEventHandler : IEventHandler<JobEvent>
     {
         var scheduler = await _schedulerFactory.GetScheduler(@event.SchedName);
         JobKey jKey = new JobKey(@event.JobName, @event.JobGroupName);
-        switch (@event.Command)
+        switch (@event.CommandEnum)
         {
-            case JobCommands.Pause: PauseJob(scheduler, jKey);
+            case JobCommandEnums.Pause: PauseJob(scheduler, jKey);
+                break;
+            case JobCommandEnums.Resume: ResumeJob(scheduler, jKey);
                 break;
             default:
                 throw new InvalidEnumArgumentException();
@@ -31,6 +34,13 @@ public class JobEventHandler : IEventHandler<JobEvent>
 
     private void PauseJob(IScheduler scheduler, JobKey jKey)
     {
+        Console.WriteLine("Job will be paused");
         scheduler?.PauseJob(jKey);
+    }
+
+    private void ResumeJob(IScheduler scheduler, JobKey jKey)
+    {
+        Console.WriteLine("Job will be resumed");
+        scheduler?.ResumeJob(jKey);
     }
 }

@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Text;
 using System.Text.Json.Nodes;
 using message_bus.Commands;
@@ -13,20 +14,19 @@ namespace message_bus;
 
 public sealed class RabbitMQBus : IMessageBus
 {
-    private readonly IConnectionFactory _connectionFactory;
     private readonly IServiceScopeFactory _serviceScopeFactory;
     private readonly Dictionary<string, List<Type>> _handlers;
     private readonly List<Type> _eventTypes;
     public RabbitMQBus(IConfiguration configuration, IServiceScopeFactory serviceScopeFactory)
     {
-        _connectionFactory = new ConnectionFactory { Uri = new Uri("amqp://admin:admin@localhost:5672") };   // { Uri = new Uri(configuration["rmqConnection"]) };
         _serviceScopeFactory = serviceScopeFactory;
         _handlers = new Dictionary<string, List<Type>>();
         _eventTypes = new List<Type>();
     }
     public void Publish<T>(T @event) where T : Event
     {
-        using var connection = _connectionFactory.CreateConnection();
+        var factory = new ConnectionFactory { Uri = new Uri("amqp://admin:admin@localhost:5672") };
+        using var connection = factory.CreateConnection();
         using var channel = connection.CreateModel();
         var eventName = @event.GetType().Name;
         channel.QueueDeclare(eventName, false, false, false, null);
@@ -62,9 +62,13 @@ public sealed class RabbitMQBus : IMessageBus
 
     private void StartBasicConsume<T>() where T : Event
     {
-        var connection = _connectionFactory.CreateConnection();
+        var factory = new ConnectionFactory 
+        { 
+            Uri = new Uri("amqp://admin:admin@localhost:5672"), 
+            DispatchConsumersAsync = true 
+        };
+        var connection = factory.CreateConnection();
         var channel = connection.CreateModel();
-
         var eventName = typeof(T).Name;
         channel.QueueDeclare(eventName, false, false, false, null);
         var consumer = new AsyncEventingBasicConsumer(channel);
@@ -82,7 +86,8 @@ public sealed class RabbitMQBus : IMessageBus
         }
         catch (Exception exception)
         {
-            
+            Debug.WriteLine(exception.Message);
+            Console.WriteLine(exception.Message);
         }
     }
 

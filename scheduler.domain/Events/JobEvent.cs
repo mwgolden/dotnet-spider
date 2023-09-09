@@ -8,13 +8,13 @@ public class JobEvent : Event
     public string SchedName { get; set; }
     public string JobName { get; set; }
     public string JobGroupName { get; set; }
-    public JobCommands Command { get; set; }
+    public JobCommandEnums CommandEnum { get; set; }
 
-    public JobEvent(string schedName, string jobName, string jobGroupName, JobCommands command)
+    public JobEvent(string schedName, string jobName, string jobGroupName, JobCommandEnums commandEnum)
     {
         SchedName = schedName;
         JobName = jobName;
         JobGroupName = jobGroupName;
-        Command = command;
+        CommandEnum = commandEnum;
     }
 }

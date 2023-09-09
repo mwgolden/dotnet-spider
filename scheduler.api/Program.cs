@@ -7,6 +7,8 @@ using scheduler.api.Data.Context;
 using scheduler.api.Data.DAL;
 using scheduler.domain.CommandHandlers;
 using scheduler.domain.Commands;
+using scheduler.domain.Interfaces;
+using scheduler.domain.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,8 +24,10 @@ builder.Services.AddTransient<IJobRepository, JobRepository>();
 builder.Services.AddSingleton<IMessageBus, RabbitMQBus>();
 
 builder.Services.AddTransient<ICommandHandler<JobCommand, bool>, JobCommandHandler>();
+builder.Services.AddTransient<IScheduleService, ScheduleService>();
 
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
