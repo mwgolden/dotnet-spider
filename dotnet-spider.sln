@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scheduler.api", "scheduler.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scheduler.domain", "scheduler.domain\scheduler.domain.csproj", "{F0ECC400-B1C8-49B0-9625-F23939985BB3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "crawler.robots-txt", "crawler.robots-txt\crawler.robots-txt.csproj", "{E578DD35-BC35-45B8-9D41-919483111083}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{F0ECC400-B1C8-49B0-9625-F23939985BB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0ECC400-B1C8-49B0-9625-F23939985BB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0ECC400-B1C8-49B0-9625-F23939985BB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E578DD35-BC35-45B8-9D41-919483111083}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E578DD35-BC35-45B8-9D41-919483111083}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E578DD35-BC35-45B8-9D41-919483111083}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E578DD35-BC35-45B8-9D41-919483111083}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

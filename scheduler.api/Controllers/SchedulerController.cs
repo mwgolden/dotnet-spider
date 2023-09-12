@@ -17,6 +17,14 @@ public class SchedulerController : Controller
         _jobRepository = jobRepository;
         _scheduleService = scheduleService;
     }
+    
+    [HttpGet]
+    [Route("all")]
+    public ActionResult<IEnumerable<List<string>>> GetSchedulers()
+    {
+        var schedulers = _jobRepository.GetJobs().Select(x => x.SchedName).Distinct();
+        return Ok(schedulers);
+    }
 
     [HttpGet]
     public ActionResult<IEnumerable<JobDTO>> GetJobs()
